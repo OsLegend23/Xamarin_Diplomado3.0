@@ -21,6 +21,12 @@ namespace SharedProject
 #if __ANDROID__
             string LibraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var FilePath = Path.Combine(LibraryPath, fileName);
+#else
+#if WINDOWS_WPF
+            //var FilePath = Path.Combine(System.Reflection.Assembly.GetExecutingAssembly().Location, fileName);
+            var FilePath = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, fileName);
+            //System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+#endif
 #endif
 #endif
             return FilePath;

@@ -9,11 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidApp", "AndroidApp\An
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWPApp", "UWPApp\UWPApp.csproj", "{34800430-4AC4-4B1F-9E23-F310E2BE5AB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFApp", "WPFApp\WPFApp.csproj", "{95D02971-BEB4-4E9B-AD18-50EDF4299086}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		SharedProject\SharedProject.projitems*{34800430-4ac4-4b1f-9e23-f310e2be5ab3}*SharedItemsImports = 4
 		SharedProject\SharedProject.projitems*{3bdf8f3a-d4e6-4c31-9923-dba95773e8fa}*SharedItemsImports = 13
 		SharedProject\SharedProject.projitems*{6a481990-c2db-4aa2-9daa-328d57cd3d3b}*SharedItemsImports = 4
+		SharedProject\SharedProject.projitems*{95d02971-beb4-4e9b-ad18-50edf4299086}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +75,22 @@ Global
 		{34800430-4AC4-4B1F-9E23-F310E2BE5AB3}.Release|x86.ActiveCfg = Release|x86
 		{34800430-4AC4-4B1F-9E23-F310E2BE5AB3}.Release|x86.Build.0 = Release|x86
 		{34800430-4AC4-4B1F-9E23-F310E2BE5AB3}.Release|x86.Deploy.0 = Release|x86
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Debug|ARM.Build.0 = Debug|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Debug|x64.Build.0 = Debug|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Debug|x86.Build.0 = Debug|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Release|ARM.ActiveCfg = Release|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Release|ARM.Build.0 = Release|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Release|x64.ActiveCfg = Release|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Release|x64.Build.0 = Release|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Release|x86.ActiveCfg = Release|Any CPU
+		{95D02971-BEB4-4E9B-AD18-50EDF4299086}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
