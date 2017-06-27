@@ -1,13 +1,14 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using System.Threading.Tasks;
 
 namespace PhoneApp
 {
-    [Activity(Label = "Phone App", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Phone App", Theme = "@android:style/Theme.Holo", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        protected override void OnCreate(Bundle bundle)
+        protected async override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
@@ -18,8 +19,10 @@ namespace PhoneApp
             var TranslateButton = FindViewById<Button>(Resource.Id.TranslateButton);
             var CallButton = FindViewById<Button>(Resource.Id.CallButton);
             var TranslatedNumber = string.Empty;
+            var TextViewValidacion = FindViewById<TextView>(Resource.Id.ValidacionTextView);
 
             CallButton.Enabled = false;
+            TextViewValidacion.Text = string.Empty;
 
             TranslateButton.Click += (object sender, System.EventArgs e) =>
             {
@@ -59,6 +62,22 @@ namespace PhoneApp
                 CallDialog.Show();
             };
 
+            await Validate();
+
+        }
+
+        async Task Validate()
+        {
+            SALLab05.ServiceClient ServiceClient = new SALLab05.ServiceClient();
+
+            string StudentMail = "r.alejandro.aguilar.m@gmail.com";
+            string Password = "nemesis@23";
+            string myDevice = Android.Provider.Settings.Secure.GetString(ContentResolver, Android.Provider.Settings.Secure.AndroidId);
+
+            var Result = await ServiceClient.ValidateAsync(StudentMail, Password, myDevice);
+
+            var TextViewValidacion = FindViewById<TextView>(Resource.Id.ValidacionTextView);
+            TextViewValidacion.Text = $"{Result.Status}\n{Result.Fullname}\n{Result.Token}";
         }
     }
 }
