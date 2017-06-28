@@ -2,5 +2,7 @@
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">PhoneApp</string>
-    <string name="CallHistory">Historial de Llamadas</string>
+    <string name="CallHistory">Historial de llamadas</string>
+  <string name="Validar">Validar</string>
+  <string name="ValidarActividad">Validar actividad</string>
 </resources>

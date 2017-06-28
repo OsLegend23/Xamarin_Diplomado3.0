@@ -11,7 +11,7 @@ namespace PhoneApp
     {
         static readonly List<string> PhoneNumbers = new List<string>();
 
-        protected async override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
@@ -22,11 +22,10 @@ namespace PhoneApp
             var TranslateButton = FindViewById<Button>(Resource.Id.TranslateButton);
             var CallButton = FindViewById<Button>(Resource.Id.CallButton);
             var CallHistoryButton = FindViewById<Button>(Resource.Id.CallHistoryButton);
+            var ValidarActividadButton = FindViewById<Button>(Resource.Id.ValidarActividadButton);
             var TranslatedNumber = string.Empty;
-            var TextViewValidacion = FindViewById<TextView>(Resource.Id.ValidacionTextView);
 
             CallButton.Enabled = false;
-            TextViewValidacion.Text = string.Empty;
 
             TranslateButton.Click += (object sender, System.EventArgs e) =>
             {
@@ -71,8 +70,6 @@ namespace PhoneApp
                 CallDialog.Show();
             };
 
-            await Validate();
-
             CallHistoryButton.Click += (sender, e) =>
             {
                 var Intent = new Android.Content.Intent(this, typeof(CallHistoryActivity));
@@ -80,21 +77,14 @@ namespace PhoneApp
                 StartActivity(Intent);
             };
 
+            ValidarActividadButton.Click += (sender, e) =>
+            {
+                var Intent = new Android.Content.Intent(this, typeof(ValidationActivity));
+                StartActivity(Intent);
+            };
         }
 
-        async Task Validate()
-        {
-            SALLab06.ServiceClient ServiceClient = new SALLab06.ServiceClient();
-
-            string StudentMail = "r.alejandro.aguilar.m@gmail.com";
-            string Password = "nemesis@23";
-            string myDevice = Android.Provider.Settings.Secure.GetString(ContentResolver, Android.Provider.Settings.Secure.AndroidId);
-
-            var Result = await ServiceClient.ValidateAsync(StudentMail, Password, myDevice);
-
-            var TextViewValidacion = FindViewById<TextView>(Resource.Id.ValidacionTextView);
-            TextViewValidacion.Text = $"{Result.Status}\n{Result.Fullname}\n{Result.Token}";
-        }
+        
     }
 }
 
