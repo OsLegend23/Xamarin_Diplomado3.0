@@ -24,12 +24,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/CallButton" />
-    <TextView
-        android:text="Text"
+    <Button
+        android:text="@string/CallHistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ValidacionTextView"
-        android:padding="30dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@android:color/holo_green_light" />
+        android:id="@+id/CallHistoryButton"
+        android:enabled="false" />
+    <Button
+        android:text="@string/ValidarActividad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ValidarActividadButton" />
 </LinearLayout>
