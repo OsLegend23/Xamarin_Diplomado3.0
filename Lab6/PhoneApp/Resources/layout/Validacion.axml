@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="Proporciona un número de teléfono:"
+        android:text="Correo:"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,18 +12,24 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/PhoneNumberText"
-        android:text="1-855-XAMARIN" />
-    <Button
-        android:text="Convertir"
+        android:id="@+id/CorreoText"
+        android:inputType="textEmailAddress" />
+    <TextView
+        android:text="Contraseña:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/TranslateButton" />
-    <Button
-        android:text="Llamar"
+        android:id="@+id/textView2" />
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/CallButton" />
+        android:id="@+id/PasswordText"
+        android:inputType="textPassword" />
+    <Button
+        android:text="@string/Validar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ValdidarButton" />
     <TextView
         android:text="Text"
         android:layout_width="match_parent"

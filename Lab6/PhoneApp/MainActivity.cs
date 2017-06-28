@@ -2,27 +2,30 @@
 using Android.Widget;
 using Android.OS;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace PhoneApp
 {
     [Activity(Label = "Phone App", Theme = "@android:style/Theme.Holo", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        protected async override void OnCreate(Bundle bundle)
+        static readonly List<string> PhoneNumbers = new List<string>();
+
+        protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
-            SetContentView (Resource.Layout.Main);
+            SetContentView(Resource.Layout.Main);
 
             var PhoneNumberText = FindViewById<EditText>(Resource.Id.PhoneNumberText);
             var TranslateButton = FindViewById<Button>(Resource.Id.TranslateButton);
             var CallButton = FindViewById<Button>(Resource.Id.CallButton);
+            var CallHistoryButton = FindViewById<Button>(Resource.Id.CallHistoryButton);
+            var ValidarActividadButton = FindViewById<Button>(Resource.Id.ValidarActividadButton);
             var TranslatedNumber = string.Empty;
-            var TextViewValidacion = FindViewById<TextView>(Resource.Id.ValidacionTextView);
 
             CallButton.Enabled = false;
-            TextViewValidacion.Text = string.Empty;
 
             TranslateButton.Click += (object sender, System.EventArgs e) =>
             {
@@ -43,7 +46,7 @@ namespace PhoneApp
                 }
             };
 
-            CallButton.Click += (object sender, System.EventArgs e) => 
+            CallButton.Click += (object sender, System.EventArgs e) =>
             {
                 // Intentar marcar el número telefónico
                 var CallDialog = new AlertDialog.Builder(this);
@@ -51,6 +54,11 @@ namespace PhoneApp
 
                 CallDialog.SetNeutralButton("Llamar", delegate
                 {
+                    //Agregar el número marcado a la lista de números marcados
+                    PhoneNumbers.Add(TranslatedNumber);
+                    // Habilitar el botón CallHistory
+                    CallHistoryButton.Enabled = true;
+
                     // Crear un intento para marcar el número telefónico
                     var CallIntent = new Android.Content.Intent(Android.Content.Intent.ActionCall);
                     CallIntent.SetData(Android.Net.Uri.Parse($"tel:{TranslatedNumber}"));
@@ -62,23 +70,21 @@ namespace PhoneApp
                 CallDialog.Show();
             };
 
-            await Validate();
+            CallHistoryButton.Click += (sender, e) =>
+            {
+                var Intent = new Android.Content.Intent(this, typeof(CallHistoryActivity));
+                Intent.PutStringArrayListExtra("phone_numbers", PhoneNumbers);
+                StartActivity(Intent);
+            };
 
+            ValidarActividadButton.Click += (sender, e) =>
+            {
+                var Intent = new Android.Content.Intent(this, typeof(ValidationActivity));
+                StartActivity(Intent);
+            };
         }
 
-        async Task Validate()
-        {
-            SALLab05.ServiceClient ServiceClient = new SALLab05.ServiceClient();
-
-            string StudentMail = "r.alejandro.aguilar.m@gmail.com";
-            string Password = "nemesis@23";
-            string myDevice = Android.Provider.Settings.Secure.GetString(ContentResolver, Android.Provider.Settings.Secure.AndroidId);
-
-            var Result = await ServiceClient.ValidateAsync(StudentMail, Password, myDevice);
-
-            var TextViewValidacion = FindViewById<TextView>(Resource.Id.ValidacionTextView);
-            TextViewValidacion.Text = $"{Result.Status}\n{Result.Fullname}\n{Result.Token}";
-        }
+        
     }
 }
 
