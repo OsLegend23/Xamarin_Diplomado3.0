@@ -26,6 +26,8 @@ namespace Lab10
 		
 		public static void UpdateIdValues()
 		{
+			global::SALLab10.Resource.String.ApplicationName = global::Lab10.Resource.String.ApplicationName;
+			global::SALLab10.Resource.String.Hello = global::Lab10.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -72,8 +74,26 @@ namespace Lab10
 			// aapt resource value: 0x7f070003
 			public const int ContentHeader = 2131165187;
 			
+			// aapt resource value: 0x7f070005
+			public const int CorreoText = 2131165189;
+			
 			// aapt resource value: 0x7f070000
 			public const int HeaderImageView = 2131165184;
+			
+			// aapt resource value: 0x7f070007
+			public const int PasswordText = 2131165191;
+			
+			// aapt resource value: 0x7f070008
+			public const int ValdidarButton = 2131165192;
+			
+			// aapt resource value: 0x7f070009
+			public const int ValidacionTextView = 2131165193;
+			
+			// aapt resource value: 0x7f070004
+			public const int textView1 = 2131165188;
+			
+			// aapt resource value: 0x7f070006
+			public const int textView2 = 2131165190;
 			
 			static Id()
 			{
@@ -90,6 +110,9 @@ namespace Lab10
 			
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Validacion = 2130903041;
 			
 			static Layout()
 			{
@@ -136,14 +159,26 @@ namespace Lab10
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int ApplicationName = 2131034112;
-			
 			// aapt resource value: 0x7f050001
-			public const int ButtonText = 2131034113;
+			public const int ApplicationName = 2131034113;
 			
 			// aapt resource value: 0x7f050002
-			public const int ContentHeader = 2131034114;
+			public const int ButtonText = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int ContentHeader = 2131034115;
+			
+			// aapt resource value: 0x7f050004
+			public const int Email = 2131034116;
+			
+			// aapt resource value: 0x7f050000
+			public const int Hello = 2131034112;
+			
+			// aapt resource value: 0x7f050005
+			public const int Password = 2131034117;
+			
+			// aapt resource value: 0x7f050006
+			public const int Validate = 2131034118;
 			
 			static String()
 			{

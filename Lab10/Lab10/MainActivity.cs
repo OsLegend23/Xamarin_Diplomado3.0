@@ -4,7 +4,7 @@ using Android.OS;
 
 namespace Lab10
 {
-    [Activity(Label = "@string/ApplicationName", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "@string/ApplicationName", Theme = "@android:style/Theme.Holo", Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         int Counter = 0;
@@ -30,6 +30,13 @@ namespace Lab10
                     Resource.Raw.sound);
                 Player.Start();
             };
+
+            Android.Content.Res.AssetManager Manager = Assets;
+
+            using (var Reader = new System.IO.StreamReader(Manager.Open("Contenido.txt")))
+            {
+                ContentHeader.Text += $"\n\n{Reader.ReadToEnd()}";
+            }
         }
     }
 }
